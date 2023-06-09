@@ -75,9 +75,17 @@
      <script>
         var totalPlayer=0;
         var totalIndex=0;
+        var name=1;
+        var playerName=[];
         $(document).on('click','#selectPlayer',function()
         {
+          
             var player=$('#playerValue').val();
+            // alert(player);
+            for(var i=1;i<=player;i++)
+            {
+                playerName.push(prompt('Enter Player '+(name++)+' Name'));
+            }
             if(player==null || player==0)
             {
                 $('#error').text('Plz Select Player');
@@ -95,7 +103,7 @@
             for(var i=1;i<=player;i++)
             {
                 html+='<th>';
-                html+='Player'+i;
+                 html+=playerName[i];
                 html+='</th>';
                 finalHtml+='<td><input type="number" name="value" class="finalValueData'+i+'" disabled></td>';
             }
